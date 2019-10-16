@@ -1,7 +1,8 @@
 const express = require('express');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
-
+const flash = require('connect-flash');
+const session = require('express-session');
 const app = express();
 
 //DB Config
@@ -18,6 +19,18 @@ app.set('view engine','ejs');
 
 //BodyParser
 app.use(express.urlencoded ({ extended: false }));
+
+//Express Session Middleware
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+  }));
+
+//Global Vars
+
+//Connect Flash Middleware
+app.use(flash());
 
 //Routes
 app.use('/',require('./routes/index'));
