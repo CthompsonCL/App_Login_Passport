@@ -5,6 +5,12 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const app = express();
 const passport = require('passport');
+const asana = require('asana');
+
+const client = asana.Client.create().useAccessToken('0/dc7731aaa2b40b10edea27894b40bb01');
+client.users.me().then(function(me) {
+    console.log(me);
+  });
 //DB Config
 const db = require('./config/keys').MongoURI;
 
@@ -49,7 +55,6 @@ app.use(function(req, res, next) {
 
 app.use('/',require('./routes/index'));
 app.use('/users',require('./routes/users'));
-
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, console.log(`Server started on ${PORT}`));

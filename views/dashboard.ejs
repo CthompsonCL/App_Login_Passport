@@ -1,3 +1,86 @@
-<h1 class="mt-4">Dashboard</h1>
-<p class="lead mb-3">Welcome <%= user.name %></p>
-<a href="/users/logout" class="btn btn-secondary">Logout</a>
+<!-- <h1 class="mt-4">Dashboard</h1>
+<p class="lead mb-3">Welcome <%= name %></p>
+<a href="/users/logout" class="btn btn-secondary">Logout</a> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#"><img src="https://i.ibb.co/mDJh9hh/logo.png" style="width:30px;height:20px;" alt="">&nbsp;Tracked System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">BurnUp Asana <span class="sr-only">(current)</span></a>
+            </li>
+            
+          </ul>
+          <span class="navbar-text">
+            Bienvenido <%= name %> ! <a href="/users/logout">Logout</a>
+          </span>
+        </div>
+      </nav>
+      
+
+<main role="main" class="col-md-12 mt-auto col-lg-12">
+        <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+          <h1 class="h2" id="chartTitle">BurnUp Asana</h1>
+        </div>
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="row">
+              <div class="form-group col-sm-4 offset-md-2">
+                <label for="beginDate">Begin Date</label>
+                <input type="date" class="form-control" id="beginDate">
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="endDate">End Date</label>
+                <input type="date" class="form-control" id="endDate">
+              </div>
+            </div>
+            <div class="row" id="canvasContainer">
+              
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <form>
+              <div class="form-group">
+                <label for="token">Asana Personal Access Token</label>
+                <input type="text" class="form-control" id="token" placeholder="Asana Token" >
+                <small id="tokenHelp" class="form-text text-muted">
+                  Developer Token as described
+                  <a href="https://asana.com/developers/documentation/getting-started/auth?missingtranslation=es#personal-access-token">here</a>
+                </small>
+              </div>
+              <button type="button" id="submitToken" class="btn btn-primary btn-sm btn-block">Submit Token</button>
+
+              <div class="form-group">
+                <div class="clearfix"></div>
+                <br>
+                <h6>Options</h6>
+                <label for="workspaces">Select Worspace</label>
+                <select class="form-control" id="workspaces" disabled>
+                  <option value="" selected disabled>Please select</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="teams">Select Team</label>
+                <select class="form-control" id="teams" disabled>
+                  <option value="" selected disabled>Please select</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="projects">Select Project</label>
+                <select class="form-control" id="projects" disabled>
+                  <option value="" selected disabled>Please select</option>
+                </select>
+              </div>
+            </form>
+          </div>
+        </div>
+      </main>
+      <br>
+      <footer><center>Copyright © All rights reserved</center></footer>
+      <br>
+
